@@ -12,6 +12,16 @@ class PostsScreen {
     this.componentDidMount();
   }
   componentDidMount() {
+    API.fetchPosts(
+      (data) => {
+        // gaunam duomenis is post ir perkeliam juos i state
+        this.state.posts = data;
+        this.render();
+      },
+      (errMsg) => {
+        console.error(errMsg);
+      }
+    );
     this.element.className = "container py-4";
     this.parent.appendChild(this.element);
   }
