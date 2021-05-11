@@ -20,11 +20,12 @@ class Post {
 
   render() {
     this.element.innerHTML = null;
+    const { title, body } = this.props;
     this.element.innerHTML = `
         <img src="https://placeimg.com/640/480/any" class="card-img-top" alt="dalykas">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">${title}</h5>
+            <p class="card-text">${body}</p>
             <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
         `;

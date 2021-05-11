@@ -37,6 +37,19 @@ class PostsScreen {
       headerNoPosts.className = "text-danger text-center";
       headerNoPosts.textContent = "There are no posts at the moment";
       this.element.appendChild(headerNoPosts);
+    } else {
+      // turim posts
+      const row = document.createElement("div");
+      row.className = "row";
+      console.log(this.state.posts);
+      this.state.posts.forEach((postProps) => {
+        const col = document.createElement("div");
+        col.className = "col-3";
+        new Post(col, postProps);
+        // padeti col i row el vidu
+        row.appendChild(col);
+      });
+      this.element.appendChild(row);
     }
   }
 }
