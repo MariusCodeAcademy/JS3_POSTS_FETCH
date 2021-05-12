@@ -8,21 +8,19 @@ class API {
       .then((data) => successCallback(data))
       .catch((err) => failCallback(err));
   }
-  // https://picsum.photos/seed/{id}/300/250
-  // https://picsum.photos/seed/5/300/250 // jei id 5
-  static fetchPostImg(successCallback, failCallback, imgId) {
-    let str = `${API.imgUrl}seed/${imgId}/300/250`;
-    console.log(str);
 
-    fetch(str)
+  // https://picsum.photos/seed/{id}/300/250
+  static fetchPostImg(successCallback, failCallback, imgId) {
+    fetch(`${API.imgUrl}seed/${imgId}/300/250`)
       // gaunam paveiksleli failo formatu
       .then((resp) => resp.blob())
       .then((blob) => {
         // kadangi gavom pati faila, tai mums reikia
         // issitraukti nuoroda i ta faila
         const imgUrlInBrowserMemory = URL.createObjectURL(blob);
-        console.log(imgUrlInBrowserMemory);
+        // console.log(imgUrlInBrowserMemory);
+        successCallback(imgUrlInBrowserMemory);
       })
-      .catch((errMsg) => console.warn(errMsg));
+      .catch((errMsg) => failCallback(errMsg));
   }
 }
