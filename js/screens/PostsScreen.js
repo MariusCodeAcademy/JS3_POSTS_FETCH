@@ -18,7 +18,7 @@ class PostsScreen {
         this.state.posts = data;
         this.render();
       },
-      (errMsg) => {
+      function (errMsg) {
         console.error(errMsg);
       }
     );
