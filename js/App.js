@@ -14,6 +14,7 @@ class App {
   render() {
     this.element.innerHTML = null;
     // sugeneruoti postu vaizda
-    new PostsScreen(this.element);
+    // new PostsScreen(this.element);
+    new SinglePostScreen(this.element);
   }
 }

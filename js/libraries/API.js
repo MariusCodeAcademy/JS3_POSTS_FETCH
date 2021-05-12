@@ -8,6 +8,13 @@ class API {
       .then((data) => successCallback(data))
       .catch((err) => failCallback(err));
   }
+  // https://jsonplaceholder.typicode.com/posts/1/comments
+  static fetchCommentsOfPost(successCallback, failCallback, postId) {
+    fetch(`${API.URL}posts/${postId}/comments`)
+      .then((resp) => resp.json())
+      .then((data) => successCallback(data))
+      .catch((err) => failCallback(err));
+  }
 
   // https://picsum.photos/seed/{id}/300/250
   static fetchPostImg(successCallback, failCallback, imgId) {
